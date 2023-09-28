@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
-import { FontAwesome } from "@expo/vector-icons";
 import Note from "./Note";
 
 export default function Template({ backgroundColor, star, title }) {
@@ -11,17 +10,19 @@ export default function Template({ backgroundColor, star, title }) {
     },
     navbar: {
       paddingTop: Constants.statusBarHeight + 10,
-      paddingHorizontal: 10,
+      paddingHorizontal: 12,
       width: "100%",
       height: "10%",
       backgroundColor: backgroundColor,
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
+      alignItems: "center",
+      elevation: 5,
     },
     sectionTitle: {
       color: "#fff",
-      fontSize: 20,
+      fontSize: 16,
       fontFamily: "Kalam",
     },
     button: {
@@ -37,23 +38,34 @@ export default function Template({ backgroundColor, star, title }) {
       alignItems: "center",
       elevation: 5,
     },
+    newNote: {
+      width: "50%",
+      height: "50%",
+      marginBottom: 5,
+    },
+    starImg: {
+      width: 16,
+      height: 16,
+      marginBottom: 5,
+    },
   });
 
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-        <FontAwesome name="bars" size={20} color="white" />
+        <Image style={styles.starImg} source={require("../assets/menu.png")} />
         <Text style={styles.sectionTitle}>{title}</Text>
-        <FontAwesome name="sort-amount-desc" size={20} color="white" />
+        <Image
+          style={styles.starImg}
+          source={require("../assets/filter.png")}
+        />
       </View>
       <Note star={star} />
       <Note star={star} />
       <View style={styles.button}>
-        <FontAwesome
-          style={{ marginLeft: 7 }}
-          name="pencil-square-o"
-          size={40}
-          color="black"
+        <Image
+          style={styles.newNote}
+          source={require("../assets/newNote.png")}
         />
       </View>
     </View>

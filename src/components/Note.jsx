@@ -1,16 +1,21 @@
-import { FontAwesome } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-const Note = ({ star }) => {
+const Note = () => {
   return (
     <>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <View style={styles.starAndTitle}>
-            <FontAwesome name={star} size={20} color="#ff2e2c" />
-            <Text style={styles.bold}>TITULO DE EJEMPLO</Text>
+            <Image
+              style={styles.starImg}
+              source={require("../assets/star.png")}
+            />
+            <Text style={styles.title}>TITULO DE EJEMPLO</Text>
           </View>
-          <FontAwesome name="exclamation" size={20} color="#ff2e2c" />
+          <Image
+            style={styles.starImg}
+            source={require("../assets/danger.png")}
+          />
         </View>
         <Text style={styles.noteDescription}>Nota de demostracion...</Text>
         <View style={styles.timeAndHour}>
@@ -26,12 +31,12 @@ const Note = ({ star }) => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
     width: "100%",
   },
   line: {
     width: "100%",
-    height: "0.25%",
+    height: "0.10%",
     backgroundColor: "#dadada",
   },
   titleContainer: {
@@ -48,18 +53,23 @@ const styles = StyleSheet.create({
   timeAndHour: {
     display: "flex",
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: 15,
     justifyContent: "space-between",
   },
   noteDescription: {
     fontWeight: "bold",
-    fontSize: 13,
+    fontSize: 9.33,
   },
-  bold: {
+  title: {
     fontWeight: "bold",
+    fontSize: 9,
   },
   p: {
-    fontSize: 11,
+    fontSize: 8.5,
+  },
+  starImg: {
+    width: 12.5,
+    height: 12.5,
   },
 });
 

@@ -7,12 +7,13 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     Kalam: require("./src/assets/fonts/Kalam-Bold.ttf"),
   });
-  return (
-    <>
-      <StatusBar style="auto" />
-      <NativeRouter>
-        <Main />
-      </NativeRouter>
-    </>
-  );
+  if (fontsLoaded)
+    return (
+      <>
+        <StatusBar style="light" backgroundColor="#000" />
+        <NativeRouter>
+          <Main />
+        </NativeRouter>
+      </>
+    );
 }
